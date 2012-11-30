@@ -142,15 +142,14 @@ Or:
 
 ## How does it work?
 
-Do some reading first:
+If you don't know what a monad is, here's some reading:
 
 * [Monads Are Elephants](http://james-iry.blogspot.com/2007/09/monads-are-elephants-part-1.html)
 * [You Could Have Invented Monads!](http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html)
 
-Now cuddle up with Haskell until you get a good idea of what monads are.
-
-Now you'll know already that Parsel is only a special case of the State monad.
-When you're defining patterns to match, you're actually composing
+If monads are still hazey, then I find a stiff dose of Haskell helps, which is
+how I sussed them out.  Knowing monads is important here, because Parsel is 
+a monad.  When you're defining patterns to match, you're actually composing
 functions, especially when you're using the logic operators on
 your patterns or using for-comprehensions.  Its reader state is actually a
 sequence of text, being either a singleton list for raw text, or a lazy list
