@@ -142,21 +142,15 @@ Or:
 
 ## How does it work?
 
-If you don't know what a monad is, here's some reading:
-
-* [Monads Are Elephants](http://james-iry.blogspot.com/2007/09/monads-are-elephants-part-1.html)
-* [You Could Have Invented Monads!](http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html)
-
-If monads are still hazey, then I find a stiff dose of Haskell helps, which is
-how I sussed them out.  Knowing monads is important here, because Parsel is 
-a monad.  When you're defining patterns to match, you're actually composing
-functions, especially when you're using the logic operators on
+Parsel is a monad.  When you're defining patterns to match, you're actually 
+composing functions, especially when you're using the logic operators on
 your patterns or using for-comprehensions.  Its reader state is actually a
 sequence of text, being either a singleton list for raw text, or a lazy list
 of text lines read in from a BufferedReader.  This allows Parsel to remember
 when in the parsing it failed and, if an alternative pattern exists, go back
 in time to an earlier state to try a different one.  It's perfectly 
-nondeterministic.
+nondeterministic and allows you to use recursive descent parsing to change
+text into a syntax tree without tokenizing.
 
 If you like this, then also check out [Parsec](www.haskell.org/haskellwiki/Parsec), which is pretty much the same thing for Haskell (seeing that Parsel is a
 Parsec clone).  As with any new software, use with caution and post 
